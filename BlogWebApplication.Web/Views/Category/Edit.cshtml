@@ -1,0 +1,23 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="Category" asp-action="Edit"  method="post">
+        <input style="display:none" value="@Model.CategoryID" name="CategoryID"/>
+        <label>Category Name</label>
+        <input class="form-control" name="CategoryName" value="@Model.CategoryName"/>
+        <span asp-validation-for="CategoryName" class="text-danger"></span>
+        <label>CategoryDescription</label>
+        <input class="form-control" name="CategoryDescription" value="@Model.CategoryDescription" />
+        <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+        <br />
+        <button type="submit" class="btn btn-gradient-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+

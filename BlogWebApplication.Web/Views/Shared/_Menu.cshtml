@@ -1,0 +1,19 @@
+﻿<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        @if (@User.Identity.IsAuthenticated)
+        {
+            <li></li>
+            <li><a href="/Blog/Index">@User.Identity.Name </a>| <a href="/User/Logout"><i class="fa fa-lock"></i>  (Çıkış Yap)</a></li>
+            <li><a href="/User/MyProfile">Profilim </a></li>
+        }
+        else
+        {
+            <li><a href="/User/Login">Giriş Yap | Kayıt Ol </a></li>
+        }
+        <li><a href="/Blog/Index" class="active">Anasayfa</a></li>
+        <li><a href="/Writer/Index">Yazarlar</a></li>
+        <li><a href="/Blog/About">Hakkımızda</a></li>
+        <li><a href="/Contact/Index">İletişime Geçin</a></li>
+    </ul>
+</nav>

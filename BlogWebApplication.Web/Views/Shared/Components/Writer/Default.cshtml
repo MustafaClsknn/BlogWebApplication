@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Writer>
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item"><h5>En Çok bloğu olan yazarlar</h5> </li>
+    @foreach (var item in Model)
+    {
+        <a asp-action="Index" asp-controller="Blog" class="list-group-item list-group-item-action"  asp-route-writerId="@item.WriterID" >@item.WriterFullName</a>
+    }
+</ul>

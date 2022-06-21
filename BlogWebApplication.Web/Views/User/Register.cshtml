@@ -1,0 +1,78 @@
+﻿@model AddUserRequest
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card" style="width:50% ; margin-left:28%; background-color: #EEEEEE">
+    <div class="card-body">
+        <div class="inner mt-5">
+            <div class="row mt-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 mt-4" style="text-align:center">
+                    <form asp-controller="User" asp-action="Register" method="post">
+                        <h2>Kayıt Ol</h2>
+                        <div class="fields mt-1">
+                            <div class="field half">
+                                <input type="text" name="UserName" placeholder="Kullanıcı Adı" />
+                                <span asp-validation-for="UserName"></span>
+                            </div>
+                            <div class="field half">
+                                <input type="text" name="FullName" placeholder="İsim Soyisim" />
+                                <span asp-validation-for="FullName"></span>
+                            </div>
+
+                            <div class="field ">
+                                <input type="text" name="UserMail" placeholder="E-Mail" />
+                                <span asp-validation-for="UserMail"></span>
+                            </div>
+
+                            <div class="field half">
+                                <input type="password" name="Password" id="pass" placeholder="Şifre" />
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="field half">
+                                <input type="password" name="PasswordRepeat" id="passConfirm" placeholder="Şifre Tekrarı" />
+
+                            </div>
+                            <div class="field">
+                                <span id="passCon" class="text-danger"></span>
+                            </div>
+
+                            <div class="field half">
+                                <select class="form-control" asp-for="UserGender" asp-items="ViewBag.Genders"></select>
+                                <span asp-validation-for="UserGender" class="text-danger"></span>
+                            </div>
+                            <div class="field half">
+                                <input type="date" class="form-control" name="Birthdate" />
+                                <span asp-validation-for="BirthDate"></span>
+                            </div>
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="field mt-4">
+                                <button type="submit" class="primary">Kayıt Ol</button>
+                            </div>
+                            <br />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        $("#passConfirm").change(function() {
+            $("#passCon").css("display", "none");
+            $(":submit").attr("disabled", true);
+            var sifre = $("#pass").val();
+            if (sifre == $(this).val()) {
+                $(":submit").removeAttr("disabled");
+            } else {
+                $("#passCon").text("Şifre tekrarı şifre ile uyuşmuyor");
+                $("#passCon").css("display", "block");
+            }
+        })
+    })
+</script>

@@ -1,0 +1,22 @@
+﻿@model AddCategoryRequest
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="Category" asp-action="CategoryAdd"  method="post">
+        <label>Kategori Adı</label>
+        <input class="form-control" name="CategoryName"/>
+        <span asp-validation-for="CategoryName" class="text-danger"></span>
+        <label>Açıklama</label>
+        <input class="form-control" name="CategoryDescription" />
+        <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+        <br />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <button type="submit" class="btn btn-gradient-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+

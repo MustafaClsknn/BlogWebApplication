@@ -1,0 +1,22 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "ContactDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+
+        <label>İletişim Kullanıcı Adı</label>
+        <input class="form-control" value="@Model.ContactUserName" disabled/>
+        <label>Konu</label>
+        <input class="form-control" value="@Model.ContactSubject" disabled/>
+        <label>Mail Hesabı</label>
+        <input class="form-control" value="@Model.ContactMail" disabled/>
+        <label>İçerik</label>
+        <input class="form-control" value="@Model.ContactMessage" disabled/>
+        <label>Tarih</label>
+        <input class="form-control" value="@Convert.ToDateTime(Model.ContactDate).ToString("dd-MM-yyyy")" disabled/>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="inner">
+    <h1>İletişim Bilgileri</h1>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Add Map</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCydCaRfAnolP_CtW1MLgRg_KNcukBtArs&callback=initMap&libraries=&v=weekly"
+                defer></script>
+        <style>
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+        </style>
+        <script>
+            function initMap() {
+                var options =
+                {
+                    zoom: 13,
+                    center: { lat: 38.708034, lng: 35.524405 }
+                }
+                var map = new google.maps.Map(document.getElementById('map'), options)
+                var marker = new google.maps.Marker({
+                    position: { lat: 38.708034, lng: 35.524405 },
+                    map: map
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <div id="map"></div>
+    </body>
+</html>
+<br /><br />
+<p>
+    Blog Website yazılım ekibi olarak Erciyes Üniversitesi Mühendislik fakültesinde yer almaktayız. 
+</p>
+</div>
+

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WriterListResponse>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="inner">
+    <h1>Yazarlar</h1>
+
+    <div class="image main">
+        <img src="~/webSite/images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
+    </div>
+
+    <div class="container">
+        <div class="row">
+            @foreach(var item in Model)
+            {
+            <partial name="_WriterCard" model="@item"/>
+            }
+        </div>
+    </div>
+</div>

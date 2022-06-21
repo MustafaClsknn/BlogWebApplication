@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BlogListResponse>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Scroll" />
+<style>
+
+</style>
+<div class="inner">
+
+    <div class=row>
+        <div class="col-md-2">
+              <br /><br />
+            @await Component.InvokeAsync("Category")
+            <br />
+            @await Component.InvokeAsync("Writer")
+        </div>
+        <div class="col-md-8">
+            <h2 class="h2">Güncel Blog Postları</h2>
+            <br /><br />
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <partial name="_BlogCard" model="@item" />
+                }
+
+            </div>
+
+            <div class="text-center ml-5">
+                <ul class="pagination">
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(i==ViewBag.CurrentPage ? "active":"")">
+                            <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-catId="@ViewBag.Category">@i</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2">
+              <br /><br />
+          
+            <br />
+            <div style="height:300px">
+                <a class="twitter-timeline" data-lang="tr" data-height="650" href="https://twitter.com/erenbali?ref_src=twsrc%5Etfw">Tweets by erenbali</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <p class="text-center">
+
+        @*   <a href="~/webSite/blog.html">Read More &nbsp;<i class="fa fa-long-arrow-right"></i></a>*@
+
+    </p>
+</div>
+
+
+@section Scripts
+    {
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+}

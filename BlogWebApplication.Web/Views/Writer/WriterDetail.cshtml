@@ -1,0 +1,37 @@
+﻿@model Writer
+@{
+    ViewData["Title"] = "WriterDetail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<div class="card">
+    <h1 class="text-success m-4">Hoşgeldiniz - Bilgileriniz</h1>
+    <div class="card-body">
+        <form asp-controller="Writer" asp-action="WriterAdd" method="post"  enctype="multipart/form-data">
+            <label class="text-success ">Yazar Adı Soyadı</label>
+            <input class="form-control mt-2 mb-2" name="WriterFullName" value="@Model.WriterFullName" />
+            <span asp-validation-for="WriterFullName" class="text-danger"></span>
+            <label class="text-success">Yazar Hakkında</label>
+            <input class="form-control mt-2 mb-2" name="WriterAbout" value="@Model.WriterAbout" />
+            <span asp-validation-for="WriterAbout" class="text-danger"></span>
+            <label class="text-success">Yazar Resim</label>
+            <input class="form-control mt-2 mb-2" name="file" type="file" />
+            <span asp-validation-for="WriterImage" class="text-danger"></span>
+            <label class="text-success">Yazar Mail Hesabı</label>
+            <input class="form-control mt-2 mb-2" name="WriterMail" value="@Model.WriterMail" />
+            <label class="text-success">Yazar - Instagram</label>
+            <input class="form-control mt-2 mb-2" name="WriterInstagram" value="@Model.WriterInstagram" />
+            <span asp-validation-for="WriterInstagram" class="text-danger"></span>
+            <label class="text-success">Yazar - Linkedin</label>
+            <input class="form-control mt-2 mb-2" name="WriterLinkedin" value="@Model.WriterLinkedin" />
+            <span asp-validation-for="WriterLinkedin" class="text-danger"></span>
+            <label class="text-success">Yazar - Twitter</label>
+            <input class="form-control mt-2 mb-2" name="WriterTwitter" value="@Model.WriterTwitter" />
+            <span asp-validation-for="WriterTwitter" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-lg btn-success">Kaydet</button>
+        </form>
+    </div>
+</div>
+

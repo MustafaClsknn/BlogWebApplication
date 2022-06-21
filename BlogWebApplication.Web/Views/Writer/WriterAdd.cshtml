@@ -1,0 +1,67 @@
+﻿@model AddWriterRequest
+@{
+    ViewData["Title"] = "WriterAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="Writer" asp-action="WriterAdd" method="post" enctype="multipart/form-data">
+            <label>Yazar Adı</label>
+            <input class="form-control" name="WriterFullName" />
+            <span asp-validation-for="WriterFullName" class="text-danger"></span>
+            <label>Yazar Kullanıcı Adı</label>
+            <input class="form-control" name="WriterUserName"/>
+            <label>Yazar Hakkında</label>
+            <input class="form-control" name="WriterAbout" />
+            <span asp-validation-for="WriterAbout" class="text-danger"></span>
+            <label>Yazar Resim</label>
+            <input class="form-control" type="file" name="file" />
+            <span asp-validation-for="WriterImage" class="text-danger"></span>
+            <label>Yazar Mail Hesabı</label>
+            <input class="form-control" name="WriterMail" />
+            <label>Yazar Cinsiyet</label>
+            <select class="form-control" asp-for="WriterGender" asp-items="ViewBag.Genders"></select>
+            <label>Yazar Doğum Günü</label>
+            <input type="date" style="color:grey" class="form-control" name="WriterBirthDate" />
+            <label>Yazar Instagram</label>
+            <input class="form-control" name="WriterInstagram" />
+            <span asp-validation-for="WriterInstagram" class="text-danger"></span>
+            <label>Yazar Linkedin</label>
+            <input class="form-control" name="WriterLinkedin" />
+            <span asp-validation-for="WriterLinkedin" class="text-danger"></span>
+            <label>Yazar Twitter</label>
+            <input class="form-control" name="WriterTwitter" />
+            <span asp-validation-for="WriterTwitter" class="text-danger"></span>
+            <label>Yazar Şifre</label>
+            <input type="password" class="form-control form-control-lg" id="pass" name="WriterPassword" />
+            <span asp-validation-for="WriterPassword"></span>
+            <label>Şifre Tekrarı</label>
+            <input type="password" class="form-control form-control-lg" id="passConfirm" />
+            <span id="passCon" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-gradient-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function() {
+            $("#passConfirm").change(function() {
+                $("#passCon").css("display", "none");
+                $(":submit").attr("disabled", true);
+                var sifre = $("#pass").val();
+                if (sifre == $(this).val()) {
+                    $(":submit").removeAttr("disabled");
+                } else {
+                    $("#passCon").text("Şifre tekrarı şifre ile uyuşmuyor");
+                    $("#passCon").css("display", "block");
+                }
+            })
+        })
+    </script>
+}

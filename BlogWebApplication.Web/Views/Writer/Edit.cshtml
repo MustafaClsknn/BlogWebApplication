@@ -1,0 +1,41 @@
+﻿@model Writer
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="Writer" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input style="display:none" name="WriterID" value="@Model.WriterID " />
+            <label>Yazar Adı Soyadı</label>
+            <input class="form-control" name="WriterFullName" value="@Model.WriterFullName" />
+            <span asp-validation-for="WriterFullName" class="text-danger"></span>
+            <label>Yazar Kullanıcı Adı</label>
+            <input class="form-control" name="WriterUserName" value="@Model.WriterUserName" />
+            <label>Yazar Hakkında</label>
+            <input class="form-control" name="WriterAbout" value="@Model.WriterAbout" />
+            <span asp-validation-for="WriterAbout" class="text-danger"></span>
+            <label>Yazar Resim</label>
+            <input type="file" class="form-control" name="file" />
+            <span asp-validation-for="WriterImage" class="text-danger"></span>
+            <label>Yazar Mail Hesabı</label>
+            <input class="form-control" name="WriterMail" value="@Model.WriterMail" />
+            <label>Yazar Cinsiyet</label>
+            <select class="form-control" asp-for="WriterGender" asp-items="ViewBag.Genders"></select>
+            <span asp-validation-for="WriterGender" class="text-danger"></span>
+            <label>Yazar Instagram</label>
+            <input class="form-control" name="WriterInstagram" value="@Model.WriterInstagram" />
+            <span asp-validation-for="WriterInstagram" class="text-danger"></span>
+            <label>Yazar Linkedin</label>
+            <input class="form-control" name="WriterLinkedin" value="@Model.WriterLinkedin" />
+            <span asp-validation-for="WriterLinkedin" class="text-danger"></span>
+            <label>Yazar Twitter</label>
+            <input class="form-control" name="WriterTwitter" value="@Model.WriterTwitter" />
+            <span asp-validation-for="WriterTwitter" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-gradient-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+

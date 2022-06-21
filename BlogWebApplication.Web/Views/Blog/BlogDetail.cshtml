@@ -1,0 +1,58 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "BlogDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="inner">
+
+
+    <div class="image main" >
+        <img style="height:450px" src="~/images/@Model.BlogImage" class="img-fluid" alt="" />
+    </div>
+    <h1>@Model.BlogTitle</h1>
+    <label>Yazar : @Model.Writer.WriterFullName </label><label class="">Tarih : @Convert.ToDateTime(Model.CreateDate).ToString("dd-MM-yyyy")</label>
+    <p>
+    @Model.BlogContent
+    </p>
+</div>
+
+
+<div class="inner">
+    <section>
+        <h2>Yorumlar </h2>
+            <div class="fields">
+                <div class="field ">
+                    @await Component.InvokeAsync("Comment")
+                </div>
+
+            </div>
+    </section>
+</div>
+<div class="inner">
+    <section>
+        <h2>Yorum Yap</h2>
+        <form asp-controller="Comment" asp-action="CommentAdd" method="post">
+            <div class="fields">
+                <input style="display:none" value="@Model.BlogID" name="blogID"/>
+                <div class="field half">
+                    <input type="text" name="CommentTitle" placeholder="Başlık" />
+                </div>
+
+                <div class="field">
+                    <textarea name="CommentContent"  rows="3" placeholder="Yorumunuz"></textarea>
+                </div>
+
+                <div class="field text-right">
+                    <label>&nbsp;</label>
+
+                    <ul class="actions">
+                        <li><button type="submit" class="primary">Yorumu Kaydet</button></li>
+                    </ul>
+
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+

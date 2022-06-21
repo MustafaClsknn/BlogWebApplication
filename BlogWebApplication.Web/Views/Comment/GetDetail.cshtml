@@ -1,0 +1,26 @@
+﻿@model CommentListResponse
+@{
+    ViewData["Title"] = "GetDetail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="card">
+    <div style="height:20px"></div>
+    <div class="m-4 mb-0">
+    <h2 class="text-success"> Yorum Detayı</h2>
+    </div>
+    <div class="card-body">
+        <label>Yorum Yapılan Blog</label>
+        <input class="form-control mt-1 mb-2" value="@Model.Blog.BlogTitle" disabled />
+        <label>Yorum Yapan Kullanıcı</label>
+        <input class="form-control mt-2 mb-2" value="@Model.User.UserName" disabled />
+        <label>Yorum Başlığı</label>
+        <input class="form-control mt-2 mb-2" value="@Model.CommentTitle" disabled />
+        <label>Yorum İçeriği</label>
+        <input class="form-control mt-2 mb-2" value="@Model.CommentContent" disabled />
+        <label>Yorum Tarihi</label>
+        <input type="text" class="form-control mt-2" name="@Model.CommentDate" value="@Convert.ToDateTime(Model.CommentDate).ToString("dd-MM-yyyy")" disabled />
+    </div>
+    <div style="height:50px"></div>
+</div>
+

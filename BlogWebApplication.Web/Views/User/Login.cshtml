@@ -1,0 +1,40 @@
+﻿@model UserLoginRequest
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card" style="width:50% ; margin-left:28% ;background-color: #EEEEEE">
+    <div class="card-body">
+        <div class="inner mt-5">
+            <div class="row mt-5">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 mt-5">
+                    <form asp-controller="User" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.ReturnUrl">
+                        <div class="fields">
+                            <div class="field ">
+                                <h2>Giriş Ekranı</h2>
+                                <input type="text" name="UserName" placeholder="Email veya kullanıcı adı" />
+                                <span asp-validation-for="UserName"></span>
+                            </div>
+                            <div class="field">
+                                <input type="password" name="Password" placeholder="password" />
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="field ">
+                                <input type="submit" value="Giriş Yap" class="primary" />
+                            </div>
+                            <br />
+                            <ul class="copyright mt-4">
+                                <li>Hesabınız yok mu ? : <a href="/User/Register">Kayıt ol</a></li>
+                                <li> <a href="/User/WriterLogin">---> Yazar Paneli</a></li>
+                                <li> <a href="/User/AdminLogin">---> Admin Paneli</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</div>

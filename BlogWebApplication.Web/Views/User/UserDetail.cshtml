@@ -1,0 +1,40 @@
+﻿@model User
+@{
+    ViewData["Title"] = "UserDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="User" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <label>Kullanıcı Adı Soyadı</label>
+            <input class="form-control" name="FullName" value="@Model.FullName"/>
+            <span asp-validation-for="FullName" class="text-danger"></span>
+            <label>Kullanıcı Adı </label>
+            <input class="form-control" name="UserName" value="@Model.UserName"/>
+            <span asp-validation-for="UserName" class="text-danger"></span>
+            <label>Kullanıcı Hakkında</label>
+            <input class="form-control" name="UserAbout"  value="@Model.UserAbout" />
+            <span asp-validation-for="UserAbout" class="text-danger"></span>
+            <label>Kullanıcı Resim</label>
+            <input class="form-control" type="file" name="file" />
+            <span asp-validation-for="ImageURL" class="text-danger"></span>
+            <label>Kullanıcı Mail Hesabı</label>
+            <input type="email" class="form-control" name="UserMail" value="@Model.UserMail"/>
+            <label>Kullanıcı Cinsiyet</label>
+            <select class="form-control" asp-for="UserGender" asp-items="ViewBag.Genders"></select>
+            <label>Kullanıcı Doğum Günü</label>
+            <input type="date" style="color:grey" class="form-control" name="BirthDate" value="@Model.BirthDate" />
+            <label>Kullanıcı Rolü</label>
+            <select class="form-control" asp-for="Role" asp-items="ViewBag.Roles"></select>
+            <label>Kullanıcı Şifre</label>
+            <input type="password" class="form-control form-control-lg" id="pass" name="Password" />
+            <span asp-validation-for="Password"></span>
+            <label>Şifre Tekrarı</label>
+            <input type="password" class="form-control form-control-lg" id="passConfirm" />
+            <span id="passCon" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-gradient-primary">Kaydet</button>
+        </form>
+    </div>
+</div>

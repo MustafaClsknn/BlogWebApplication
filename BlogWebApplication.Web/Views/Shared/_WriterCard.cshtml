@@ -1,0 +1,15 @@
+﻿@model WriterListResponse
+
+<div class="col-sm-3 text-center">
+    <img src="~/images/@Model.WriterImage" class="img-fluid" alt=""  />
+
+    <h2 class="m-n">@Model.WriterFullName</h2>
+
+    <p>
+ 
+        @Model.WriterAbout <br>
+
+        <a href="@Model.WriterTwitter"><i class="fa fa-twitter"></i></a> &nbsp;
+        <a href="@Model.WriterInstagram"><i class="fa fa-instagram"></i></a>
+    </p>
+</div>

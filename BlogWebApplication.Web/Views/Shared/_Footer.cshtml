@@ -1,0 +1,57 @@
+﻿<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>Bizimle iletişime geçin</h2>
+            <form method="post" asp-controller="Contact" asp-action="ContactAdd">
+                <div class="fields">
+                    <div class="field half">
+                        <input type="text" name="ContactUserName"  placeholder="İsim Soyisim" />
+                    </div>
+
+                    <div class="field half">
+                        <input type="text" name="ContactMail" placeholder="Email" />
+                    </div>
+
+                    <div class="field">
+                        <input type="text" name="ContactSubject" id="subject" placeholder="Konu" />
+                    </div>
+
+                    <div class="field">
+                        <textarea name="ContactMessage" id="message" rows="3" placeholder="Mesajınız"></textarea>
+                    </div>
+                    <div class="field text-right">
+                        <label>&nbsp;</label>
+
+                        <ul class="actions">
+                            <li><input type="submit" value="Gönder" class="primary" /></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <h2>İletişim Bilgileri</h2>
+
+            <ul class="alt">
+                <li><span class="fa fa-envelope-o"></span> <a href="#">mustafa.clsknn@gmail.com</a></li>
+                <li><span class="fa fa-phone"></span> +90 538 918 08 31 </li>
+                <li><span class="fa fa-map-pin"></span> Alsancak Mahallesi Kocasinan / Kayseri</li>
+            </ul>
+
+            <h2>Bizi Takip Edin</h2>
+
+            <ul class="icons">
+                <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            </ul>
+        </section>
+
+        <ul class="copyright">
+            <li>Copyright © 2022 </li>
+        </ul>
+    </div>
+</footer>

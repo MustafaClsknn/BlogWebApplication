@@ -1,0 +1,10 @@
+﻿@model BlogListResponse
+
+<div class="col-sm-4 text-center">
+    <img style="width:80%;height:42%" src="~/images/@Model.BlogImage" class="img-fluid" alt="" />
+
+    <h2 class="m-n"><a href="/Blog/BlogDetail/@Model.BlogID"  data-id="@Model.BlogID">@Model.BlogTitle</a></h2>
+
+    <p> @Model.Writer.WriterFullName &nbsp;|&nbsp; @Convert.ToDateTime(@Model.CreateDate).ToString("dd-MM-yyyy") </p>
+</div>
+<br />

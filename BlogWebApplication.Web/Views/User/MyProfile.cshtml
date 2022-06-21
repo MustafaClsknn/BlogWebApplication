@@ -1,0 +1,32 @@
+﻿@model User
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="inner mt-5">
+    <div class="row mt-5">
+
+        <div class="col-md-1"></div>
+        <div class="col-md-8 mt-4">
+            <form method="post" action="#">
+                <div class="fields">
+                    <img class="ml-5 mt-4 pl-0 pt-0 field half" style="width:15%; height:15%; border-radius:40%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" />
+                    <div class="ml-4 mt-2 field half ">
+                        <p class="pb-0"><h2>@Model.UserName </h2></p>
+                        <p>@Model.UserMail</p>
+                    </div>
+
+                    <div class="field ml-3 mt-3">
+                        <p>
+                            @Model.UserAbout
+                        </p>
+                    </div>
+           
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

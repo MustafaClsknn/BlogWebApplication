@@ -1,0 +1,36 @@
+﻿@model UpdateBlogRequest
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="card">
+    <div>
+        <h2 class="text-success m-4 mb-0">Blog Düzenle</h2>
+    </div>
+    <div class="card-body">
+        <form asp-controller="Blog" asp-action="Edit"  enctype="multipart/form-data" method="post">
+            <input style="display:none" name="BlogID" value="@Model.BlogID"/>
+            <label>Blog Başlığı</label>
+            <input class="form-control" id="b" name="BlogTitle" value="@Model.BlogTitle" />
+            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+            <label>Blog İçeriği</label>
+            <input class="form-control" name="BlogContent" value="@Model.BlogContent"/>
+            <span asp-validation-for="BlogContent" class="text-danger"></span>
+            <label>Blog Thumbnail Resmi</label>
+            <input class="form-control" name="file" type="file"  />
+            <span asp-validation-for="BlogThumbnailImage" class="text-danger"></span>
+            <label>Blog Resmi</label>
+            <input class="form-control" type="file" name="file" value="@Model.BlogImage" />
+            <span asp-validation-for="BlogImage" class="text-danger"></span>
+            <label>Kategori</label>
+            <select class="form-control" asp-for="CategoryID" asp-items="ViewBag.SelectedCategories"></select>
+            <span asp-validation-for="CategoryID" class="text-danger"></span>
+            <label>Yazar</label>
+            <select class="form-control" asp-for="WriterID" asp-items="ViewBag.SelectedWriters"></select>
+            <span asp-validation-for="WriterID" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-success">Kaydet</button>
+        </form>
+    </div>
+</div>

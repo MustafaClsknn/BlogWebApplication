@@ -1,0 +1,33 @@
+﻿@model AddBlogRequest
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div>
+            <h2 class="text-success"><p>Blog Ekle</p></h2>
+        </div>
+        <form asp-controller="Blog" asp-action="BlogAdd" enctype="multipart/form-data" method="post" >
+            <label>Blog Başlığı</label>
+            <input class="form-control" name="BlogTitle" />
+            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+            <label>Blog İçeriği</label>
+            <input class="form-control" name="BlogContent" />
+            <span asp-validation-for="BlogContent" class="text-danger"></span>
+            <label>Blog Thumbnail Resmi</label>
+            <input type="file" class="form-control" name="file" />
+            <span asp-validation-for="BlogThumbnailImage" class="text-danger"></span>
+            <label>Blog Resmi</label>
+            <input type="file" class="form-control" name="file" />
+            <span asp-validation-for="BlogImage" class="text-danger"></span>
+            <label>Kategori</label>
+            <select class="form-control" asp-for="CategoryID" asp-items="ViewBag.SelectedCategories"></select>
+            <span asp-validation-for="CategoryID" class="text-danger"></span><br />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <button type="submit" class="btn btn-success">Kaydet</button>
+        </form>
+
+    </div>
+</div>
